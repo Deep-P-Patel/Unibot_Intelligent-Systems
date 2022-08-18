@@ -1,0 +1,22 @@
+#Which topics Sarah competent in?
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> .
+PREFIX foaf: <http://xmlns.com/foaf/0.1/> .
+PREFIX vivo: <http://vivoweb.org/ontology/core#> .
+PREFIX uni: <http://uni.io/schema#> .
+PREFIX unidata: <http://unidata.io/data#> .
+
+SELECT ?topicName
+WHERE{
+ ?student foaf:name "Sarah".
+ ?student uni:hasTranscript ?t.
+ ?t uni:forCourse ?course.
+ ?courseId rdfs:label ?course.
+ ?t uni:hasGrade ?grade.
+ ?lec uni:in_a ?courseId.
+ ?lec uni:hasLectureContent ?lecmat.
+ ?topic uni:covered_by ?lecmat.
+ ?topic rdfs:label ?topicName.
+ FILTER (?grade >= "1.5")
+}

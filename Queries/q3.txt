@@ -1,0 +1,22 @@
+# Which courses include Machine Learning?
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> .
+PREFIX foaf: <http://xmlns.com/foaf/0.1/> .
+PREFIX vivo: <http://vivoweb.org/ontology/core#> .
+PREFIX uni: <http://uni.io/schema#> .
+PREFIX unidata: <http://unidata.io/data#> .
+
+SELECT ?coursename  (count (?coursename) as ?count)
+WHERE {
+  ?topic uni:covered_by ?lcURI.
+  ?topic rdfs:label Machine Learning.
+  ?lecId uni:hasLectureContent ?lcURI.
+  ?lecId rdfs:label ?lecture.
+  ?lcURI rdf:type ?t.
+  ?lcURI rdfs:label ?type.
+  ?lecId uni:in_a ?course.
+  ?course rdfs:label ?coursename.
+  }GROUP BY ?coursename ORDER BY DESC(?count)
+
