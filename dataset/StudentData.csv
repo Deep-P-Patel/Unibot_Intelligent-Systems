@@ -1,0 +1,14 @@
+Index,id,First_name,last_name,Email,Completed Course,Grade,Term
+1,111111,John,Doe,jd@gmail.com,COMP474,3.7,Fall2021
+,,,,,COMP6721,4.1,Winter2020
+,,,,,FTRA633,3,Fall2018
+2,111112,Jane,Smith,js@gmail.com,InNSE6320,2.9,Winter2020
+3,111113,Sarah,Thomas,st@gmail.com,MANA420,2,Summer2017
+4,111114,Frank,Brown,fb@gmail.com,ETEC699,3.6,Fall2021
+5,111115,Mike,Davis,md@gmail.com,EDUC361,4.1,Fall2016
+,,,,,COMP6721,3.6,Winter2020
+6,111116,Jennifer,Wilson,jw@gmail.com,CIVI6621,3.65,Summer2019
+7,111117,Jessica,Garcia,jG@gmail.com,BTM480,3.1,Fall2016
+8,111118,Fred,Clark,fc@gmail.com,BIOL890,4,Fall2021
+9,111119,Bob,Lopez,bl@gmail.com,APLI601,3.8,Winter2020
+10,111120,Tim,Hope,th@gmail.com,ADED497,3.5,Fall2021
