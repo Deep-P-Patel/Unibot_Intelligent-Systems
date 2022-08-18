@@ -1,0 +1,268 @@
+#--------------
+#---Prefixes---
+#--------------
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vivo: <http://vivoweb.org/ontology/core#> .
+@prefix uni: <http://uni.io/schema#> .
+@prefix unidata: <http://unidata.io/data#> .
+
+#----------------------
+#---University Class---
+#----------------------
+uni:University
+    a rdfs:Class;
+    rdfs:subClassOf foaf:Organization;
+    rdfs:label "University Class"@en;
+    rdfs:comment "This class describe about the University"@en.
+
+#----------------------------
+#---#Describing properties---
+#----------------------------
+uni:offers
+    a rdf:Property ;
+    rdfs:domain uni:University ;
+    rdfs:range vivo:Course ;
+    rdfs:label "University A offers course B"@en ;
+    rdfs:comment "University offers courses."@en .
+
+#-----------------------------------------------------
+#---ADDITIONAL PROPERTIES FOR DATA ENTRY FOR COURSE---
+#-----------------------------------------------------
+uni:courseName
+    a rdf:Property ;
+    rdfs:domain vivo:Course ;
+    rdfs:range rdfs:Literal ;
+    rdfs:label "Course Name"@en ;
+    rdfs:comment "A course name is the title of a course"@en .
+
+uni:courseSubject
+    a rdf:Property ;
+    rdfs:domain vivo:Course ;
+    rdfs:range rdfs:Literal ;
+    rdfs:label "Course Subject"@en ;
+    rdfs:comment "A course subject is the first part of a course code"@en .
+
+uni:courseNumber
+    a rdf:Property ;
+    rdfs:domain vivo:Course ;
+    rdfs:range rdfs:Literal ;
+    rdfs:label "Course Number"@en ;
+    rdfs:comment "A course number is the second part of a course code"@en .
+
+uni:courseCredits
+    a rdf:Property ;
+    rdfs:domain vivo:Course ;
+    rdfs:range rdfs:Literal;
+    rdfs:label "Course Credits"@en ;
+    rdfs:comment "A course credits is recognition by university that this course has been successfully completed"@en .
+
+uni:courseDescription
+    a rdf:Property ;
+    rdfs:domain vivo:Course ;
+    rdfs:range rdfs:Literal ;
+    rdfs:label "Course Description"@en ;
+    rdfs:comment "A course description is a statement that represent this course"@en .
+
+uni:courseOutline
+    a foaf:Document ;
+    rdfs:label "Course Outline"@en ;
+    rdfs:comment "A course outline is a document that summarizes what students will learn"@en .
+
+#-------------------
+#---Lecture Class---
+#-------------------
+uni:Lecture
+    a rdfs:Class;
+    rdfs:label "Lecture of the course"@en;
+    rdfs:comment "This class contains information about lectures of the particular course"@en.
+
+uni:lectureNumber
+    a rdf:Property;
+    rdfs:domain uni:Lecture;
+    rdfs:range rdfs:Literal;
+    rdfs:label "Lecture number"@en;
+    rdfs:comment "This predicate tells the Lecture number, Example - Lecture1..."@en.
+
+uni:lectureName
+    a rdf:Property;
+    rdfs:domain uni:Lecture;
+    rdfs:range rdfs:Literal;
+    rdfs:label "Name of the lecture"@en;
+    rdfs:comment "This predicate tells the Lecture name, Example - knowledge graph.."@en.
+
+uni:hasLectureContent
+    a rdf:Property;
+    rdfs:domain uni:Lecture;
+    rdfs:range uni:Slides,
+        uni:Worksheet,
+        uni:Readings,
+        uni:Lab,
+        uni:Tutorial;
+    rdfs:label "lecture materials"@en;
+    rdfs:comment "materials like slides, worksheet etc."@en.
+
+#------------------------
+#---Lecture SubClasses---
+#------------------------
+
+uni:Slides
+    a rdfs:Class;
+    rdfs:subClassOf rdf:Lecture;
+    rdfs:label "Lecture Slides"@en;
+    rdfs:comment "Slides of the topics covered in the lecture"@en.
+
+uni:Worksheet
+    a rdfs:Class;
+    rdfs:subClassOf rdf:Lecture;
+    rdfs:label "Lecture Worksheets"@en;
+    rdfs:comment "Worksheets of the topics covered in the lecture"@en.
+
+uni:Readings
+    a rdfs:Class;
+    rdfs:subClassOf rdf:Lecture;
+    rdfs:label "Lecture Readings"@en;
+    rdfs:comment "Additional reading of the lecture"@en.
+
+uni:Lab
+    a rdfs:Class;
+    rdfs:subClassOf rdf:Lecture;
+    rdfs:label "Lecture lab"@en;
+    rdfs:comment "labs required for practical work of the lecture"@en.
+
+uni:Tutorial
+    a rdfs:Class;
+    rdfs:subClassOf rdf:Lecture;
+    rdfs:label "Tutorials"@en;
+    rdfs:comment "Tutorials required for the understanding of the concepts"@en.
+
+#----------------------------
+#---#Describing properties---
+#----------------------------
+uni:in_a
+    a rdf:Property;
+    rdfs:domain uni:Lecture;
+    rdfs:range vivo:Course;
+    rdfs:label "Lectures in a Course"@en;
+    rdfs:comment "This predicate describe about Lectures delivered into the particular Course"@en.
+
+#------------------
+#---Topics Class---
+#------------------
+uni:Topics
+    a rdfs:Class;
+    #rdfs:subClassOf vivo:Course
+    rdfs:label "Topics covered in course"@en;
+    rdfs:comment "This class contains information about lectures of the particular course"@en.
+
+#----------------------------
+#---#Describing properties---
+#----------------------------
+uni:covered_by
+    a rdf:Property;
+    rdfs:domain uni:Topics;
+    rdfs:range uni:Lecture;
+    rdfs:label "Topics covered in Courses"@en;
+    rdfs:comment "This predicate describe about Topics covered in the Course"@en.
+
+uni:hasTopic
+    a rdf:Property;
+    rdfs:domain uni:Slide,
+                uni:Worksheet;
+    rdfs:range uni:Topics;
+    rdfs:label "Topics covered in Courses"@en;
+    rdfs:comment "This predicate describe about Topics covered in the Course"@en.
+
+uni:topicLabel
+    a rdf:Property;
+    rdfs:domain uni:Topics;
+    rdfs:range rdfs:Literal;
+    rdfs:label "Topic label"@en;
+    rdfs:comment "What the topic about"@en.
+
+#-------------------
+#---Student Class---
+#-------------------
+uni:student
+    a rdfs:Class;
+    rdfs:subClassOf foaf:Person;
+    rdfs:label "Students of the University"@en;
+    rdfs:comment "This class contains information about University students"@en.
+
+#----------------------------
+#---#student properties---
+#----------------------------
+uni:id
+    a rdf:Property;
+    rdfs:domain uni:Student;
+    rdfs:range rdfs:Literal;
+    rdfs:label "Student Identification number"@en;
+    rdfs:comment "This predicate tells student ID number"@en.
+
+uni:hasTaken
+    a rdf:Property;
+    rdfs:domain uni:Student;
+    rdfs:range vivo:Course;
+    rdfs:label "Course taken by student"@en;
+    rdfs:comment "This predicate tells which courses student has taken"@en.
+
+uni:hasTranscript
+    a rdf:property;
+    rdfs:domain uni:students;
+    rdfs:range uni:transcript;
+    rdfs:label "Grade history"@en;
+    rdfs:comment "Shows relation between student and his transcript"@en.
+
+#-------------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------------------
+#uni:willRetake
+#    a rdf:property;
+#    rdfs:domain uni:Student;
+#    rdfs:range vivo:Course;
+#    rdfs:label "student retake course or not"@en;
+#    rdfs:comment "Depends on the pass/fail criteria it will be decided that student will retake the course or not".
+
+#uni:cTopic
+#    a rdf:property;
+#    rdfs:domain uni:Student;
+#    rdfs:range rdfs:Literal;
+#    rdfs:label "competency topics"@en;
+#    rdfs:comment "Student is competent in the topic or not and will follow for the course as well"@en.
+#-------------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------------------
+
+#----------------------
+#---Transcript Class---
+#----------------------
+uni:Transcript
+    a rdfs:class;
+    rdfs:label "Transcript of the student"@en;
+    rdfs:comment "Contains the student grade details"@en.
+
+#------------------------------------
+#---#additional student properties---
+#------------------------------------
+uni:hasGrade
+    a rdf:property;
+    rdfs:domain uni:Transcript;
+    rdfs:range rdfs:Literal;
+    rdfs:label "garde of subject"@en;
+    rdfs:comment "how much grade student get?"@en.
+
+uni:forCourse
+    a rdf:property;
+    rdfs:domain uni:Transcript;
+    rdfs:range vivo:course;
+    rdfs:label "Course of the transcript"@en;
+    rdfs:comment "For which course transcript has been generated?".
+
+uni:passsingYear
+    a rdf:property;
+    rdfs:domain uni:Transcript;
+    rdfs:range rdfs:Literal;
+    rdfs:label "Course term"@en;
+    rdfs:comment "In which term student completed particular course".
