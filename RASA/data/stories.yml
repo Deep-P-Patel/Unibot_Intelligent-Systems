@@ -1,0 +1,87 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: get course info
+  steps:
+  - intent: about_course
+  - action: course_about
+
+- story: get competent topic
+  steps:
+  - intent: about_compTopic
+  - action: student_topic
+
+- story: get topic of subject
+  steps:
+  - intent: topic_to_course
+  - action: action_topic_to_course
+
+- story: get topic of subject
+  steps:
+  - intent: which_topic_course
+  - action: topic_course
+
+- story: get name of lecture
+  steps:
+  - intent: know_lecture_name
+  - action: find_lecture_name
+
+- story: total number courses
+  steps:
+  - intent: know_courses_number
+  - action: find_numofcourse
+
+- story: topic in particular course
+  steps:
+  - intent: know_how_many_topics
+  - action: find_number_of_topics
+
+- story: total number courses
+  steps:
+  - intent: have_course_labs
+  - action: ask_have_courselabs
+
+- story: what credit
+  steps:
+  - intent: know_course_credit
+  - action: find_course_credit
+
+- story: will retake course
+  steps:
+  - intent: which_courses_take_again
+  - action: find_courses_take_again
+
+- story: will retake course
+  steps:
+  - intent: know_topic_of_courseEvent
+  - action: find_topic_of_courseEvent
+
+

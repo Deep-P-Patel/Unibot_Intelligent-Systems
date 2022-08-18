@@ -1,0 +1,222 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: about_course
+  examples: |
+    - What is course [COMP474](course) about?
+    - What is course [GDBA532](course) about?
+    - What is course [ACCO420](course) about?
+    - What is course [BIOL201](course) about?
+    - What is course [JOUR535](course) about?
+    - What is course [COMS684](course) about?
+    - What is course [DRAW200](course) about?
+    - What is course [PERC209](course) about?
+    - What is course [ECON423](course) about?
+    - What is course [FRAA409](course) about?
+    - What is course [GEOG301](course) about?
+    - What is course [HIST380](course) about?
+    - What is course [BLDG492](course) about?
+    - What is course [LOYC420](course) about?
+    - What is course [MAST232](course) about?
+    - What is course [PHYS224](course) about?
+    - What is course [RELI410](course) about?
+    - What is course [SCPA301](course) about?
+    - What is course [THEO234](course) about?
+    - What is course [URBS491](course) about?
+    - What is course [WSDB292](course) about?
+    - What is course [COMP474](course) about?
+    - What is course [ENCS474](course) about?
+    - What is course [FINA471](course) about?
+    - What is course [MAST333](course) about?
+    - What is [MECH361](course) about ?
+    - What's [ENGR208](course) about
+    - What's [INST232](course) about
+    - What's [COMP248](course) course about
+
+- intent: about_compTopic
+  examples: |
+    - Which topics [John](student) competent in
+    - Which topics [Sarah](student) competent in?
+    - Which topics [Bella](student) competent in
+    - Which topics [Mike](student) competent?
+
+- intent: topic_to_course
+  examples: |
+    - Which courses include [Machine_learning](topic)
+    - Which courses have [Deep Learning](topic)?
+    - Which courses include [Artificial Intelligence](topic)?
+    - Which courses include [Machine_learning](topic)
+    - Which courses at Concordia teach [Machine_learning](topic)?
+    - Which courses at Concordia teach [Intelligent Systems](topic)
+    - Which courses at Concordia teach [Intelligent Systems](topic)?
+    - Which courses cover [Deep Learning](topic)?
+    - Which courses cover [Machine_learning](topic)?
+
+- intent: which_topic_course
+  examples: |
+    - Which topics are covered in [COMP6471](course)
+    - Which topics are covered in [COMP6471](course)?
+    - what topics does [COMP474](course) cover?
+    - What topics does [SOEN6611](course) cover
+    - Which topics are covered in [COMP471](course)
+    - Which topics are covered in [COMP671](course)?
+    - what topics does [COMP4744](course) cover?
+    - What topics does [SOEN661](course) cover
+
+- intent: know_lecture_name
+  examples: |  
+    - What is the name of [COMP474](course) lecture [2](number)
+    - What is the name of [COMP474](course) lecture [2](number)?
+    - What is [COMP6474](course) lecture [5](number) 
+    - What is [COMP5474](course) lecture [3](number)?
+    - What is [COMP474](course) lecture [2](number) about
+    - What is [COMP474](course) lecture [2](number) about?
+    - What is [COMP6474](course) lecture [5](number) 
+    - What is [COMP5474](course) lecture [3](number)?
+
+- intent: know_courses_number
+  examples: |
+    - How many courses does the university offer
+    - How many courses does the university offer?
+    - How many courses does the university teach
+    - How many courses does the university teach?
+    - what is the total number of courses in university?
+    - what is the total number of courses in university
+
+- intent: know_how_many_topics
+  examples: |
+    - How many topics are covered in [COMP474](course)
+    - How many topics are covered in [COMP474](course)?
+    - How many topics are covered in [COMP6474](course)
+    - How many topics are covered in [COMP8474](course)?
+    - How many topics in [COMP474](course)
+    - How many topics in [SOEN474](course)?
+    - How many topics in [SOEN6474](course)
+    - How many topics in [COMP8474](course)?
+
+- intent: have_course_labs
+  examples: |
+    - Does [COMP6741](course) have labs
+    - Does [COMP6741](course) have labs?
+    - Is there any labs in [COMP474](course)
+    - Is there any labs in [COMP5741](course)?
+    - Does [COMP4444](course) have labs
+    - Does [COMP3456](course) have labs?
+    - Is there any labs in [SOEN345](course)
+    - Is there any labs in [SOEN234](course)?
+
+- intent: know_course_credit
+  examples: |
+    - What is the course credit of [comp](course) [343](number)
+    - What is the course credit of [comp](course) [471](number)?
+    - What is the course credit of [soen](course) [343](number)
+    - What is the course credit of [soen](course) [471](number)?
+    - Tell me the course credit about [comp](course) [3433](number)
+    - Tell me the course credit about [comp](course) [3434](number)?
+
+- intent: which_courses_take_again
+  examples: |
+    - Which course [Sarah](student) will take again
+    - Which course [John](student) will take again?
+    - Which course [Sarah](student) will take again
+    - Which course [Peter](student) will take again?
+    - Which course need [John](student) retake
+    - Which course need [Peter](student) retake?
+
+- intent: know_topic_of_courseEvent
+  examples: |
+    - Which topics are covered in [slide2](courseEvent) of [COMP474](course)?
+    - Which topics are covered in [lab3](courseEvent) of [COMP474](course)?
+    - Which topics are covered in [worksheet5](courseEvent) of [COMP474](course)?
+    - Which topics are in [slide10](courseEvent) of [COMP474](course)?
+    - Which topics are in [worksheet3](courseEvent) of [COMP474](course)?
+    - Which topics are in [lab9](courseEvent) of [COMP474](course)?
